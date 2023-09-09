@@ -112,6 +112,9 @@ const Game1: React.FC = () => {
     setBottomBlocks([])
   }
 
+  const buttonCx =
+    "flex justify-center items-center w-6 h-6 rounded-md border border-neutral-500 hover:border-neutral-200 opacity-80 hover:opacity-100 transition-all duration-300 ease-linear"
+  const buttonActiveCx = "pointer-events-none border-white border-2 opacity-100"
   return (
     <div className="flex justify-center bg-neutral-900 text-white">
       <div className="flex flex-col justify-center items-center min-h-screen p-8 gap-8">
@@ -137,35 +140,35 @@ const Game1: React.FC = () => {
       </div>
       <div className="flex flex-col py-8 gap-4">
         <button
-          className="w-6 h-6 rounded-md bg-black border border-neutral-500"
+          className={cx(buttonCx, "bg-black", type === "black" && buttonActiveCx)}
           onClick={() => setType("black")}
         ></button>
         <button
-          className="w-6 h-6 rounded-md bg-orange-500 border border-neutral-500"
+          className={cx(buttonCx, "bg-violet-800", type === "violet" && buttonActiveCx)}
+          onClick={() => setType("violet")}
+        ></button>
+        <button
+          className={cx(buttonCx, "bg-orange-400", type === "orange" && buttonActiveCx)}
           onClick={() => setType("orange")}
         ></button>
         <button
-          className="w-6 h-6 rounded-md bg-violet-800 border border-neutral-500"
-          onClick={() => setType("orange")}
+          className={cx(buttonCx, "bg-amber-400", type === "yellow" && buttonActiveCx)}
+          onClick={() => setType("yellow")}
         ></button>
         <button
-          className="w-6 h-6 rounded-md bg-orange-400 border border-neutral-500"
-          onClick={() => setType("orange")}
+          className={cx(buttonCx, "bg-lime-400", type === "green" && buttonActiveCx)}
+          onClick={() => setType("green")}
         ></button>
         <button
-          className="w-6 h-6 rounded-md bg-amber-400 border border-neutral-500"
-          onClick={() => setType("black")}
+          className={cx(buttonCx, "bg-pink-400", type === "pink" && buttonActiveCx)}
+          onClick={() => setType("pink")}
         ></button>
         <button
-          className="w-6 h-6 rounded-md bg-lime-400 border border-neutral-500"
-          onClick={() => setType("black")}
+          className={cx(buttonCx, "bg-sky-500", type === "blue" && buttonActiveCx)}
+          onClick={() => setType("blue")}
         ></button>
         <button
-          className="w-6 h-6 rounded-md bg-sky-500 border border-neutral-500"
-          onClick={() => setType("black")}
-        ></button>
-        <button
-          className="flex justify-center items-center w-6 h-6 rounded-md bg-neutral-800 fill-neutral-200 [&>svg]:h-3 border border-neutral-500"
+          className={cx(buttonCx, "bg-neutral-800 [&>svg]:fill-neutral-200 [&>svg]:h-3 border border-neutral-500")}
           onClick={clickOrDoubleClick(
             () => {},
             () => reset()
